@@ -11,6 +11,46 @@
     <link rel="stylesheet" type="text/css" href="https://cdn.jsdelivr.net/npm/slick-carousel@1.8.1/slick/slick.css" />
     <link rel="stylesheet" type="text/css" href="https://cdn.jsdelivr.net/npm/slick-carousel@1.8.1/slick/slick-theme.css" />
     <style type="text/css">
+        /* Generator Navigation */
+        
+        ul.gen-nav-bar {
+            list-style-type: none;
+            margin: 0;
+            overflow: hidden;
+            background-color: #fff;
+            text-align: center;
+            font-size: 0;
+            padding: 75px 0 50px;
+        }
+        
+        .gen-nav-bar li {
+            display: inline-block;
+            border-radius: 50px;
+            border: 1px solid black;
+            overflow: hidden;
+            margin: 0 10px;
+        }
+        
+        .gen-nav-bar li a {
+            font-size: 14px;
+            display: block;
+            color: #000;
+            text-align: center;
+            padding: 14px 16px;
+            text-decoration: none;
+            font-family: 'SamsungSharpSans', arial;
+            font-weight: bold !important;
+        }
+        
+        .gen-nav-bar li a:hover:not(.active) {
+            background-color: grey;
+            color: #fff;
+        }
+        
+        .gen-nav-bar .active {
+            background-color: #000;
+            color: #fff;
+        }
         /* Tracking & Links Notifications on Hover  */
         /*Style for Toolkit --------------------------------------------------------*/
         
@@ -21,7 +61,7 @@
         
         .cg-container {
             box-sizing: border-box;
-            padding: 100px 0;
+            padding: 30px 0 100px;
         }
         
         .test-code .pznmodal-header {
@@ -495,6 +535,10 @@ color: #000 !important;
             margin: 0 auto;
             width: 700px;
         }
+        
+        .cg-container .cg-title-logo img {
+            width: 150px;
+        }
         /* .pzn-disclaim p {
     font-size: 9px;
     line-height: 10px;
@@ -509,7 +553,12 @@ color: #000 !important;
 </head>
 
 <body>
-
+    <!-- Generator Navigation Bar -->
+    <ul class="gen-nav-bar">
+        <li><a class="active" href="#">S21 COMPARISON TABLE</a></li>
+        <li><a href="https://claudiocamba.github.io/n20comparisontable/">NOTE20 COMPARISON TABLE</a></li>
+        <li><a href="https://claudiocamba.github.io/s20comparisontable/">S20 COMPARISON TABLE</a></li>
+    </ul>
     <div class="editLink-container">
         <div class="shade"></div>
         <div class="editLink-wrapper">
@@ -575,25 +624,25 @@ color: #000 !important;
         </div>
         <div class="cg-content">
             <div class="cg-content-text">
-                <h2 class="cg-content-text-title">Galaxy S21 Comparison Grid<br>Code Generator</h2>
-                <p class="cg-content-text-desc">This page will allow you to generate code required for the S21 Comparison Grid test you are building on the buy page.</p>
+                <h2 class="cg-content-text-title">Galaxy S21 Comparison Table<br>Code Generator</h2>
+                <p class="cg-content-text-desc">This page will allow you to generate code required for the S21 Comparison Table test you are building on the buy page.</p>
                 <p class="cg-content-text-steps">
                     <strong>Step 1:</strong> Select which device type from the drop down you would like to use.
                     <br>
-                    <strong>Step 2:</strong> Click on the comparison grid text you would like to change and make the update directly.
+                    <strong>Step 2:</strong> Click on the comparison table text you would like to change and make the update directly.
                     <br>
                     <strong>Step 3:</strong> Once you are happy with your changes then just click generate.
                     <br>
                     <strong>Step 4:</strong> The code should appear in the empty box below, click copy to clipboard then press ctrl+v/cmd+v or right click and paste the code back into Adobe Target HTML content block.
                     <br>
-                    <strong>Step 5:</strong> Repeat all steps again for every device type you would like to build this comparison grid on.
+                    <strong>Step 5:</strong> Repeat all steps again for every device type you would like to build this comparison table on.
                 </p>
                 <p class="cg-content-text-disc">*If nothing is entered then you will retrieve <strong>pre-set UK code</strong> otherwise please fill out the form below to get the correct values for your market.</p>
                 <div class="cg-content-variation">
                     <input type="radio" id="c-v-page" name="color" value="page" checked>
-                    <label for="page">S21 Comparison Grid Page Variation 1 <b>(On the Page)</b></label><br>
+                    <label for="page">S21 Comparison Table Page Variation 1 <b>(On the Page)</b></label><br>
                     <input type="radio" id="c-v-popup" name="color" value="popup">
-                    <label for="popup">S21 Comparison Grid Pop-Up Variation 2 <b>(Inside CTA Pop-Up)</b></label><br>
+                    <label for="popup">S21 Comparison Table Pop-Up Variation 2 <b>(Inside CTA Pop-Up)</b></label><br>
                 </div>
                 <div class="devicetype-header">
                     <select id="devicehandle" onchange="return optionControl()">
