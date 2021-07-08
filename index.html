@@ -1,0 +1,855 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="utf-8">
+    <meta content="width=device-width, initial-scale=1" name="viewport">
+    <meta content="S21 Comparison Table Code Generator" name="S21 Comparison Table Code Generator">
+    <title>S21 Comparison Table Code Generator</title>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+    <script type="text/javascript" src="https://cdn.jsdelivr.net/npm/slick-carousel@1.8.1/slick/slick.min.js"></script>
+    <link rel="stylesheet" type="text/css" href="https://cdn.jsdelivr.net/npm/slick-carousel@1.8.1/slick/slick.css" />
+    <link rel="stylesheet" type="text/css" href="https://cdn.jsdelivr.net/npm/slick-carousel@1.8.1/slick/slick-theme.css" />
+    <style type="text/css">
+        /* Tracking & Links Notifications on Hover  */
+        /*Style for Toolkit --------------------------------------------------------*/
+        
+        body {
+            margin: 0;
+            padding: 0;
+        }
+        
+        .cg-container {
+            box-sizing: border-box;
+            padding: 100px 0;
+        }
+        
+        .test-code .pznmodal-header {
+            padding: 30px 0;
+        }
+        
+        .test-code .pznclose {
+            display: none;
+        }
+        
+        .test-code .pznmodal-body {
+            padding: 0px 20px 43px;
+        }
+        
+        .test-code .pzn-title {
+            margin-bottom: 13px;
+        }
+        
+        .test-code .pzn-title h3 {
+            font-family: "SamsungSharpSans", arial;
+            font-weight: bold !important;
+            color: #fff;
+            font-size: 13px;
+        }
+        
+        .test-code .pzn-pop-up .pzn-title h3 {
+            color: #000;
+        }
+        
+        .test-code .pzn-comp-top .pzn-img img {
+            width: 100%;
+            height: auto;
+            padding-bottom: 28px;
+        }
+        /* .swiper-pagination-bullet {
+width: 6.39px!important;
+height: 6.39px!important;
+}
+.swiper-button-next:after, .swiper-button-prev:after {
+font-size: 20px!important;
+} */
+        
+        .pznaccordion {
+            padding: 10.22px 8.88px;
+            font-family: "SamsungSharpSans", arial;
+            font-size: 18px;
+            background: #000;
+        }
+        
+        .pznaccordion:after,
+        .pznaccordion.active:after {
+            font-size: 18px;
+        }
+        
+        .pzn-sec-row {
+            padding-bottom: 4.5px;
+        }
+        
+        .pzn-col-wrap button {
+            padding: 31px 10.66px 10.66px;
+            border: none;
+            background: #000;
+            cursor: pointer;
+        }
+        
+        span.pzn-col-title {
+            font-size: 9.6px;
+            top: 12.5px;
+        }
+        
+        .pzn-col-wrap .pzn-col-name {
+            font-size: 8.5px;
+            margin-top: 8.5px;
+        }
+        
+        .pzn-col-wrap .pzn-col-bar {
+            height: 3.3px;
+        }
+        
+        .pzn-sec-row.pzn-name {
+            margin-top: 10.66px;
+        }
+        
+        .pzn-sec-row.pzn-name .pzn-sec-row-spec {
+            font-size: 10.66px;
+            font-family: "SamsungSharpSans", arial;
+        }
+        
+        .pzn-sec-row-title {
+            font-family: "SamsungSharpSans", arial;
+            font-size: 11.46px;
+        }
+        
+        .pzn-sec-row-title span,
+        .pznmodal-footer span {
+            display: block;
+        }
+        
+        .pzn-sec-row-title:hover span,
+        .pzn-sec-row-title span:empty {
+            background: lightpink;
+        }
+        
+        .pzn-sec-row-spec {
+            font-size: 8.93px;
+            padding: 4px;
+            height: 43.65px;
+            margin-left: 5.33px;
+            font-family: "SamsungSharpSans", arial;
+        }
+        
+        .pzn-comp-grid-cta a {
+            padding: 12px 20px;
+            font-size: 11.46px;
+        }
+        
+        .pzn-sec-row .pzn-sec-row-spec img {
+            width: 17.06px;
+        }
+        
+        .pzn-screensize .pzn-sec-row-spec.pzn-biggr img {
+            height: 42px!important;
+            width: auto!important;
+        }
+        
+        .pzn-screensize .pzn-sec-row-spec img[alt=sign] {
+            width: 22px;
+            height: auto;
+        }
+        
+        .pzn-comp-grid-cta {
+            padding: 16px 0 8px 0;
+        }
+        
+        .pznmodal-footer {
+            font-size: 8.53px;
+            font-family: "SamsungSharpSans", arial;
+            margin: 10.66px 0;
+        }
+        
+        .pzn-comp-grid-offer {
+            width: 40%;
+            display: inline-block;
+            padding: 8px 8px 8px 0;
+            font-size: 11.46px;
+            vertical-align: middle;
+        }
+        
+        .pzn-comp-grid-offer p {
+            margin: 0;
+        }
+        
+        .pzn-comp-top-title {
+            padding: 0 8.88px 44px;
+        }
+        
+        .pzn-comp-top-title h2 {
+            font-size: 26px;
+            margin: 0;
+        }
+        
+        .pznGenHTML.pzn-copy-html {
+            display: none!important;
+        }
+        /* Slick -------------------------------------------------------------------- */
+        
+        #pznmyModal .slick-dotted.slick-slider {
+            margin-bottom: 28px!important;
+        }
+        
+        #pznmyModal .slick-prev:before {
+            font-size: 30px!important;
+        }
+        
+        #pznmyModal .slick-next:before {
+            font-size: 30px!important;
+        }
+        
+        #pznmyModal .slick-prev,
+        #pznmyModal .slick-next {
+            height: 30px;
+        }
+        /* Modal Content */
+        
+        .pznGenHTML .pzn-pop-up .pznmodal-content {
+            position: unset;
+            bottom: unset;
+        }
+        /* The Modal (background) */
+        
+        .pznGenHTML .pzn-pop-up.pznmodal {
+            display: block;
+            position: unset;
+            z-index: unset;
+            left: unset;
+            top: unset;
+            height: unset;
+        }
+        /*Style for Toolkit --------------------------------------------------------*/
+        /* #pzn-pop-up .tooltip .tooltiptext, #pzn-pop-up .addlinks .tooltiptext{
+background-color: white !important;
+color: #000 !important;
+} */
+        
+        .tooltip .tooltiptext,
+        .addlinks .tooltiptext {
+            display: none !important;
+            width: auto !important;
+            background-color: #fff !important;
+            color: #000 !important;
+            text-align: center !important;
+            border-radius: 6px !important;
+            padding: 10px !important;
+            font-size: 12px !important;
+            text-transform: unset !important;
+            font-family: "SamsungOne", arial !important;
+            font-weight: bold !important;
+            /* Position the tooltip */
+            position: absolute !important;
+            z-index: 999 !important;
+        }
+        
+        .tooltip:hover .tooltiptext,
+        .addlinks:hover .tooltiptext {
+            display: block !important;
+            cursor: pointer;
+        }
+        /* Lightbox for Edit Links  */
+        
+        .editLink-container,
+        .tracking-container {
+            display: none;
+        }
+        
+        .editLink-container .shade,
+        .tracking-container .shade {
+            /*  width: 100%; */
+            /* height: 160%; */
+            background-color: #000;
+            opacity: 0.6;
+            z-index: 99;
+            /* display: block; */
+            position: fixed;
+            top: 0;
+            bottom: 0;
+            left: 0;
+            right: 0;
+        }
+        
+        .editLink-container .editLink-wrapper,
+        .tracking-container .editLink-wrapper {
+            position: absolute;
+            left: 50%;
+            top: 50%;
+            width: auto;
+            background-color: #fff;
+            border-radius: 10px;
+            padding: 30px;
+            z-index: 9999999;
+            margin-top: -285.5px;
+            margin-left: -156px;
+            position: fixed;
+        }
+        
+        .editLink-container .top,
+        .editLink-container .bottom,
+        .editLink-container .tracking-top,
+        .editLink-container .tracking-bottom,
+        .tracking-container .top,
+        .tracking-container .bottom,
+        .tracking-container .tracking-top,
+        .tracking-container .tracking-bottom {
+            position: relative;
+        }
+        
+        .editLink-container .tracking-top,
+        .tracking-container .tracking-top {
+            margin-top: 30px;
+        }
+        
+        .editLink-container .main-txt,
+        .tracking-container .main-txt {
+            vertical-align: text-top;
+            color: #4b4b4b;
+            font-size: 1.25rem;
+            line-height: 1.5rem;
+            font-weight: 300;
+            position: relative;
+            display: inline-block;
+            margin-right: 30px;
+        }
+        
+        .editLink-container .cancel-btn,
+        .tracking-container .cancel-btn {
+            position: relative;
+            display: inline-block;
+            margin-left: 10px;
+        }
+        
+        .editLink-container .save-btn,
+        .tracking-container .save-btn {
+            position: relative;
+            display: inline-block;
+            margin-left: 10px;
+        }
+        
+        .editLink-container .line,
+        .tracking-container .line {
+            display: block;
+            margin: 10px 0;
+            bottom: 0;
+            left: .9375rem;
+            right: .9375rem;
+            height: .125rem;
+            background: rgba(0, 0, 0, .05);
+        }
+        
+        .editLink-container .url-txt,
+        .editLink-container .tracking-main-txt,
+        .editLink-container .tracking-event-input,
+        .editLink-container .tracking-evar-input,
+        .editLink-container .tracking-evar-desc,
+        .tracking-container .url-txt,
+        .tracking-container .tracking-main-txt,
+        .tracking-container .tracking-event-input,
+        .tracking-container .tracking-evar-input,
+        .tracking-container .tracking-evar-desc {
+            font-family: adobe-clean, Helvetica, Arial, sans-serif;
+            font-weight: 400;
+            font-style: normal;
+            font-size: .8125rem;
+            line-height: 1.0625rem;
+            display: block;
+            position: relative;
+        }
+        
+        .editLink-container input,
+        .tracking-container input {
+            width: 80%;
+            margin-top: 10px;
+            display: block;
+        }
+        
+        .editLink-container .url-txt,
+        .editLink-container .tracking-evar-input,
+        .editLink-container .tracking-evar-desc,
+        .tracking-container .url-txt,
+        .tracking-container .tracking-evar-input,
+        .tracking-container .tracking-evar-desc {
+            margin-top: 10px;
+        }
+        
+        .editLink-container button,
+        .tracking-container button {
+            cursor: pointer;
+        }
+        
+        .tracking-bottom,
+        .tracking-top {
+            display: none;
+        }
+        /* Confluence Page HTML/Styling Starts here  */
+        
+        .cg-container {
+            max-width: 1440px;
+            margin: 0 auto;
+            background-color: #f7f7f7;
+            font-family: "SamsungOne", arial;
+        }
+        
+        .cg-container .cg-title-logo {
+            text-align: center;
+            padding: 20px 0;
+        }
+        
+        .cg-container .cg-content-text {
+            text-align: center;
+        }
+        
+        .cg-container .cg-content-text-title {
+            font-weight: bold;
+            font-size: 52px;
+            margin-bottom: 10px;
+            font-family: "SamsungSharpSans", arial;
+        }
+        
+        .cg-container .cg-content-text-desc {
+            font-size: 16px;
+            line-height: 28px;
+            margin-bottom: 10px;
+        }
+        
+        .cg-container .cg-content-text-disc {
+            font-size: 13px;
+            line-height: 20px;
+            margin-bottom: 10px;
+        }
+        
+        .cg-container .cg-content-marketcode {
+            margin-bottom: 10px;
+            font-size: 16px;
+        }
+        
+        .cg-container .test-code {
+            max-width: 400px;
+            margin: 0 auto;
+            border: 1px solid #000;
+        }
+        
+        .cg-container .cg-content-ctas {
+            text-align: center;
+        }
+        
+        .cg-container .cg-content-ctas-generate {
+            margin: 10px;
+            cursor: pointer;
+            display: inline-block;
+        }
+        
+        .cg-container .sub.generate-cta {
+            font-size: 12px;
+            border-radius: 45px;
+            padding: 12px 38px 13px;
+            background-color: #1428a0;
+            border-color: #1428a0;
+            color: #fff;
+            border: 1px solid;
+            font-weight: bold;
+            text-transform: uppercase;
+            letter-spacing: .15em;
+            cursor: pointer;
+        }
+        
+        .cg-container .cg-content-ctas-copy {
+            margin: 10px;
+            cursor: pointer;
+            display: inline-block;
+        }
+        
+        .cg-container .sub.copy-cta {
+            font-size: 12px;
+            border-radius: 45px;
+            padding: 12px 38px 13px;
+            background-color: transparent;
+            border-color: #555;
+            color: #555;
+            border: 1px solid;
+            font-weight: bold;
+            text-transform: uppercase;
+            letter-spacing: .15em;
+            cursor: pointer;
+        }
+        
+        .cg-container .code-block-container {
+            text-align: center;
+        }
+        
+        .cg-container .code-block {
+            width: 70%;
+            height: 500px;
+            margin: 20px;
+            font-size: 12px;
+        }
+        
+        .cg-container .devicetype-header {
+            margin: 20px 0;
+        }
+        
+        .cg-content-text-steps {
+            text-align: left;
+            margin: 0 auto;
+            width: 700px;
+        }
+        /* .pzn-disclaim p {
+    font-size: 9px;
+    line-height: 10px;
+    font-family: "SamsungOne",arial;
+    font-weight: 500;
+  }
+  .accordion_body td {
+  padding-left: 5px!important;
+  padding-right: 5px!important;
+} */
+    </style>
+</head>
+
+<body>
+
+    <div class="editLink-container">
+        <div class="shade"></div>
+        <div class="editLink-wrapper">
+            <div class="top">
+                <span class="main-txt">Enter Link</span>
+                <button class="cancel-btn">Cancel</button>
+                <button class="save-btn">Save</button>
+            </div>
+            <span class="line"></span>
+            <div class="bottom">
+                <span class="url-txt">Enter a link Text:</span>
+                <input class="get-text" placeholder="UPGRADE TO GALAXY S20">
+                <span class="url-txt">Enter a link URL:</span>
+                <input class="get-link" placeholder="/uk/">
+            </div>
+            <div class="tracking-top">
+                <span class="main-txt">Enter Tracking</span>
+            </div>
+            <span class="line"></span>
+            <div class="tracking-bottom">
+                <span class="tracking-event-input">Analytics event number:</span>
+                <input type="number" class="get-event" placeholder="35">
+                <span class="tracking-evar-input">Analytics eVar number:</span>
+                <input type="number" class="get-evar" placeholder="35">
+                <span class="tracking-evar-desc">Analytics eVar description:</span>
+                <input class="get-evar-desc" placeholder="galaxy-s21:highlights:comparison-grid:buy-now">
+            </div>
+        </div>
+    </div>
+
+    <!-- Lightbox for just Tracking -->
+    <div class="tracking-container">
+        <div class="shade"></div>
+        <div class="editLink-wrapper">
+            <div class="top">
+                <span class="main-txt">Enter Link</span>
+                <button class="cancel-btn">Cancel</button>
+                <button class="save-btn">Save</button>
+            </div>
+            <span class="line"></span>
+            <div class="bottom">
+                <span class="url-txt">Enter Section Text:</span>
+                <input class="get-text" placeholder="Category Name e.g. Screen">
+            </div>
+            <div class="tracking-top">
+                <span class="main-txt">Enter Tracking</span>
+            </div>
+            <span class="line"></span>
+            <div class="tracking-bottom">
+                <span class="tracking-event-input">Analytics event number:</span>
+                <input type="number" class="get-event" placeholder="35">
+                <span class="tracking-evar-input">Analytics eVar number:</span>
+                <input type="number" class="get-evar" placeholder="35">
+                <span class="tracking-evar-desc">Analytics eVar description:</span>
+                <input class="get-evar-desc" placeholder="galaxy-s21:highlights:comparison-grid:buy-now">
+            </div>
+        </div>
+    </div>
+    <!-- Confluence Page HTML/Styling Ends here -->
+    <div class="cg-container">
+        <div class="cg-title-logo">
+            <img class="cg-img" src="https://www.samsung.com/etc.clientlibs/samsung/clientlibs/consumer/global/clientlib-common/resources/images/global-samsung-logo.svg">
+        </div>
+        <div class="cg-content">
+            <div class="cg-content-text">
+                <h2 class="cg-content-text-title">Galaxy S21 Comparison Grid<br>Code Generator</h2>
+                <p class="cg-content-text-desc">This page will allow you to generate code required for the S21 Comparison Grid test you are building on the buy page.</p>
+                <p class="cg-content-text-steps">
+                    <strong>Step 1:</strong> Select which device type from the drop down you would like to use.
+                    <br>
+                    <strong>Step 2:</strong> Click on the comparison grid text you would like to change and make the update directly.
+                    <br>
+                    <strong>Step 3:</strong> Once you are happy with your changes then just click generate.
+                    <br>
+                    <strong>Step 4:</strong> The code should appear in the empty box below, click copy to clipboard then press ctrl+v/cmd+v or right click and paste the code back into Adobe Target HTML content block.
+                    <br>
+                    <strong>Step 5:</strong> Repeat all steps again for every device type you would like to build this comparison grid on.
+                </p>
+                <p class="cg-content-text-disc">*If nothing is entered then you will retrieve <strong>pre-set UK code</strong> otherwise please fill out the form below to get the correct values for your market.</p>
+                <div class="cg-content-variation">
+                    <input type="radio" id="c-v-page" name="color" value="page" checked>
+                    <label for="page">S21 Comparison Grid Page Variation 1 <b>(On the Page)</b></label><br>
+                    <input type="radio" id="c-v-popup" name="color" value="popup">
+                    <label for="popup">S21 Comparison Grid Pop-Up Variation 2 <b>(Inside CTA Pop-Up)</b></label><br>
+                </div>
+                <div class="devicetype-header">
+                    <select id="devicehandle" onchange="return optionControl()">
+                    <option value="s9">Galaxy S9</option>
+                    <option value="s9plus">Galaxy S9+</option>
+                    <option value="s10">Galaxy S10</option>
+                    <option value="s105g">Galaxy S10+ 5G</option>
+                    <option value="s20">Galaxy S20</option>
+                    <option value="s20plus">Galaxy S20+</option>
+                    <option value="s20fe">Galaxy S20 FE</option>
+                    <option value="s20ultra">Galaxy S20 Ultra</option>
+                    <option value="note9">Galaxy Note9</option>
+                    <option value="note10">Galaxy Note10</option>
+                    <option value="note10plus">Galaxy Note10+</option>
+                    <option value="note10plus5g">Galaxy Note10+ 5G</option>
+                    <option value="note20">Galaxy Note20</option>
+                    <option value="note20ultra">Galaxy Note20 Ultra</option>
+                    <option value="zflip">Galaxy Z Flip 5G</option>
+                    <option value="zfold">Galaxy Z Fold2 5G</option>
+                    <option value="lo12max">Apple iPhone 12 Max</option>
+                    <option value="p40proplus">Huawei P40 Pro+</option>
+                    <option value="p40pro">Huawei P40 Pro</option>
+                    <option value="prolite5g">Huawei P40 Lite 5G</option>
+                    <option value="p30pro">Huawei P30 Pro</option>
+                    <option value="mate20pro">Huawei Mate20 Pro</option>
+                  </select>
+                </div>
+            </div>
+            <!-- Replace HTML code under here with your test HTML code -->
+            <div class="test-code">
+
+                <!-- Galaxy S9 -->
+                <div class="pznGenHTML">
+                    <div class="pznmodal" id="pznmyModal">
+                        <div class="pznmodal-content">
+                            <div class="pznmodal-header"><span class="pznclose"></span></div>
+                            <div class="pznmodal-body">
+                                <div class="pzn-comp-top-title">
+                                    <h2>Compare your phone</h2>
+                                </div>
+                                <div class="pzn-comp-top">
+                                    <div class="pzn-your-device">
+                                        <div class="pzn-title">
+                                            <h3 var-update="name">Galaxy S9</h3>
+                                        </div>
+                                        <div class="pzn-img"><img alt="Galaxy S9" src="https://images.samsung.com/is/image/samsung/p5/uk/pzn/toolkit2021/pct-pju/S9.png?$ORIGIN_PNG$"></div>
+                                    </div>
+                                    <div class="pzn-comp-device">
+                                        <div class="pzn-title">
+                                            <h3 comp-update="alt">Galaxy S21</h3>
+                                        </div>
+                                        <div class="pzn-img">
+                                            <div class="cwiper-container">
+                                                <div class="cwiper-wrapper">
+                                                    <div class="cwiper-slide"><img alt="Galaxy S21" spen="https://images.samsung.com/is/image/samsung/p5/uk/pzn/hubble/comparison_grid/close.png?$ORIGIN_JPG" fiveg="https://images.samsung.com/is/image/samsung/p5/uk/pzn/hubble/comparison_grid/tick.png?$ORIGIN_JPG"
+                                                            battery="4000mAh &lt;br&gt; (typical)*" col="#A5A9C7 | https://images.samsung.com/is/image/samsung/p5/uk/pzn/toolkit2021/pct-pju/S21-violet.png | Phantom Violet,#6F7175 | https://images.samsung.com/is/image/samsung/p5/uk/pzn/toolkit2021/pct-pju/S21-grey.png | Phantom Grey,#E9E9E7 | https://images.samsung.com/is/image/samsung/p5/uk/pzn/toolkit2021/pct-pju/S21-white.png | Phantom White,#F7C4BD | https://images.samsung.com/is/image/samsung/p5/uk/pzn/toolkit2021/pct-pju/S21-pink.png | Phantom Pink"
+                                                            encrypt="Knox" fastcharge="https://images.samsung.com/is/image/samsung/p5/uk/pzn/hubble/comparison_grid/tick.png?$ORIGIN_JPG" fingerscan="Ultrasonic fingerprint scanner" frontcamera="10MP" infinity="https://images.samsung.com/is/image/samsung/p5/uk/pzn/hubble/comparison_grid/tick.png?$ORIGIN_JPG"
+                                                            otherbio="Face scanning" powershare="https://images.samsung.com/is/image/samsung/p5/uk/pzn/hubble/comparison_grid/tick.png?$ORIGIN_JPG" ram="8GB" rearcamera="<span><table> <tbody><tr> <td>12MP(UW)</td><td>12MP(W)</td></tr><tr> <td>10MP(T)</td></tr></tbody></table> </span>"
+                                                            screensize="6.2" sim="https://images.samsung.com/is/image/samsung/p5/uk/pzn/hubble/comparison_grid/tick.png?$ORIGIN_JPG" singletake="https://images.samsung.com/is/image/samsung/p5/uk/pzn/hubble/comparison_grid/tick.png?$ORIGIN_JPG"
+                                                            size="5.9 x 2.8" src="https://images.samsung.com/is/image/samsung/p5/uk/pzn/toolkit2021/pct-pju/S21-violet.png" storage="128GB / 256GB" videores="4K@60fps &lt;br&gt; 8K@24fps" weight="171g" zoom="3x Optical Zoom &lt;br&gt; 10x Digital Zoom &lt;br&gt; 30x Space Zoom"></div>
+                                                    <div class="cwiper-slide"><img alt="Galaxy S21+" spen="https://images.samsung.com/is/image/samsung/p5/uk/pzn/hubble/comparison_grid/close.png?$ORIGIN_JPG" fiveg="https://images.samsung.com/is/image/samsung/p5/uk/pzn/hubble/comparison_grid/tick.png?$ORIGIN_JPG"
+                                                            battery="4800mAh &lt;br&gt; (typical)*" col="#A5A9C7 | https://images.samsung.com/is/image/samsung/p5/uk/pzn/toolkit2021/pct-pju/S21Plus-violet.png | Phantom Violet,#211F14 | https://images.samsung.com/is/image/samsung/p5/uk/pzn/toolkit2021/pct-pju/S21Plus-black.png | Phantom Black,#C0CAD6 | https://images.samsung.com/is/image/samsung/p5/uk/pzn/toolkit2021/pct-pju/S21Plus-silver.png | Phantom Silver"
+                                                            encrypt="Knox" fastcharge="https://images.samsung.com/is/image/samsung/p5/uk/pzn/hubble/comparison_grid/tick.png?$ORIGIN_JPG" fingerscan="Ultrasonic fingerprint scanner" frontcamera="10MP" infinity="https://images.samsung.com/is/image/samsung/p5/uk/pzn/hubble/comparison_grid/tick.png?$ORIGIN_JPG"
+                                                            otherbio="Face scanning" powershare="https://images.samsung.com/is/image/samsung/p5/uk/pzn/hubble/comparison_grid/tick.png?$ORIGIN_JPG" ram="8GB" rearcamera="<span><table> <tbody><tr> <td>12MP(UW)</td><td>12MP(W)</td></tr><tr> <td>64MP(T)</td></tr></tbody></table> </span>"
+                                                            screensize="6.7" sim="https://images.samsung.com/is/image/samsung/p5/uk/pzn/hubble/comparison_grid/tick.png?$ORIGIN_JPG" singletake="https://images.samsung.com/is/image/samsung/p5/uk/pzn/hubble/comparison_grid/tick.png?$ORIGIN_JPG"
+                                                            size="6.3 x 2.9" src="https://images.samsung.com/is/image/samsung/p5/uk/pzn/toolkit2021/pct-pju/S21Plus-violet.png" storage="128GB / 256GB" videores="4K@60fps &lt;br&gt; 8K@24fps" weight="202g" zoom="10x Digital Zoom &lt;br&gt; 30x Space Zoom"></div>
+                                                    <div class="cwiper-slide"><img alt="Galaxy S21 Ultra 5G" spen="https://images.samsung.com/is/image/samsung/p5/uk/pzn/hubble/comparison_grid/tick.png?$ORIGIN_JPG" fiveg="https://images.samsung.com/is/image/samsung/p5/uk/pzn/hubble/comparison_grid/tick.png?$ORIGIN_JPG"
+                                                            battery="5000mAh &lt;br&gt; (typical)*" col="#211F14 | https://images.samsung.com/is/image/samsung/p5/uk/pzn/toolkit2021/pct-pju/S21Ultra-black.png | Phantom Black,#C0CAD6 | https://images.samsung.com/is/image/samsung/p5/uk/pzn/toolkit2021/pct-pju/S21Ultra-silver.png | Phantom Silver"
+                                                            encrypt="Knox" fastcharge="https://images.samsung.com/is/image/samsung/p5/uk/pzn/hubble/comparison_grid/tick.png?$ORIGIN_JPG" fingerscan="Ultrasonic fingerprint scanner" frontcamera="10MP" infinity="https://images.samsung.com/is/image/samsung/p5/uk/pzn/hubble/comparison_grid/tick.png?$ORIGIN_JPG"
+                                                            otherbio="Face scanning" powershare="https://images.samsung.com/is/image/samsung/p5/uk/pzn/hubble/comparison_grid/tick.png?$ORIGIN_JPG" ram="12GB / 16GB" rearcamera="<span><table> <tbody><tr> <td>12MP(UW)</td><td>108MP(W)</td></tr><tr> <td>64MP(T)</td></tr></tbody></table> </span>"
+                                                            screensize="6.8" sim="https://images.samsung.com/is/image/samsung/p5/uk/pzn/hubble/comparison_grid/tick.png?$ORIGIN_JPG" singletake="https://images.samsung.com/is/image/samsung/p5/uk/pzn/hubble/comparison_grid/tick.png?$ORIGIN_JPG"
+                                                            size="6.5 x 2.9" src="https://images.samsung.com/is/image/samsung/p5/uk/pzn/toolkit2021/pct-pju/S21Ultra-black.png" storage="128GB / 256GB / 512GB" videores="4K@60fps &lt;br&gt; 8K@24fps" weight="228g"
+                                                            zoom="100x Space Zoom"></div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="pzn-comp-btm"> <button pzn-get-data="galaxy-s21:highlights:comparison-grid:dropdown:colours" class="pznaccordion"><span>Colours</span></button>
+                                    <div class="pznpanel">
+                                        <div class="pzn-sec-row pzn-colours"></div>
+                                    </div><button pzn-get-data="galaxy-s21:highlights:comparison-grid:dropdown:camera" class="pznaccordion pznctaaccord"><span>Camera</span></button>
+                                    <div class="pznpanel">
+                                        <div class="pzn-sec-row pzn-name">
+                                            <div class="pzn-sec-row-spec"> <span var-update="name">Galaxy S9</span> </div>
+                                            <div class="pzn-sec-row-spec"> <span comp-update="alt">250GB</span> </div>
+                                        </div>
+                                        <div class="pzn-sec-row pzn-frontcamera">
+                                            <div class="pzn-sec-row-title"> <span>Front Camera</span> </div>
+                                            <div class="pzn-sec-row-spec"> <span var-update="frontCam">8MP</span> </div>
+                                            <div class="pzn-sec-row-spec"> <span comp-update="frontcamera">250GB</span> </div>
+                                        </div>
+                                        <div class="pzn-sec-row pzn-rearcamera">
+                                            <div class="pzn-sec-row-title"> <span>Rear Camera</span> </div>
+                                            <div class="pzn-sec-row-spec"> <span var-update="rearCam">12MP(W)</span> </div>
+                                            <div class="pzn-sec-row-spec"> <span comp-update="rearcamera">250GB</span> </div>
+                                        </div>
+                                        <div class="pzn-sec-row pzn-singletake">
+                                            <div class="pzn-sec-row-title"> <span>Single Take</span> </div>
+                                            <div class="pzn-sec-row-spec"> <span><img alt="sign" src="https://images.samsung.com/is/image/samsung/p5/uk/pzn/hubble/comparison_grid/close.png?$ORIGIN_JPG"></span> </div>
+                                            <div class="pzn-sec-row-spec"> <span>250GB</span> </div>
+                                        </div>
+                                        <div class="pzn-sec-row pzn-videores">
+                                            <div class="pzn-sec-row-title"> <span>Video Resolution</span> </div>
+                                            <div class="pzn-sec-row-spec"> <span var-update="vidRes">1440p @30fps</span> </div>
+                                            <div class="pzn-sec-row-spec"> <span comp-update="videores">250GB</span> </div>
+                                        </div>
+                                        <div class="pzn-sec-row pzn-zoom">
+                                            <div class="pzn-sec-row-title"> <span>Zoom</span> </div>
+                                            <div class="pzn-sec-row-spec"> <span var-update="zoom">8x Digital Zoom</span> </div>
+                                            <div class="pzn-sec-row-spec"> <span comp-update="zoom">250GB</span> </div>
+                                        </div>
+                                        <div class="pzn-comp-grid-offer">
+                                            <p>Pre-order a Galaxy S21 Ultra 5G and claim a free Galaxy Gift</p>
+                                        </div>
+                                        <div class="pzn-comp-grid-cta"> <a pzn-get-data="galaxy-s21:highlights:comparison-grid:camera:pre-order" href="https://www.samsung.com/uk/smartphones/galaxy-s21-5g/buy/">Pre-Order</a> </div>
+                                    </div><button pzn-get-data="galaxy-s21:highlights:comparison-grid:dropdown:display" class="pznaccordion pznctaaccord"><span>Display</span></button>
+                                    <div class="pznpanel">
+                                        <div class="pzn-sec-row pzn-name">
+                                            <div class="pzn-sec-row-spec"> <span var-update="name">Galaxy S9</span> </div>
+                                            <div class="pzn-sec-row-spec"> <span comp-update="alt">250GB</span> </div>
+                                        </div>
+                                        <div class="pzn-sec-row pzn-size">
+                                            <div class="pzn-sec-row-title"> <span>Device Size</span> </div>
+                                            <div class="pzn-sec-row-spec"> <span var-update="size">5.8x2.7"</span> </div>
+                                            <div class="pzn-sec-row-spec"> <span comp-update="size">250GB</span> </div>
+                                        </div>
+                                        <div class="pzn-sec-row pzn-weight">
+                                            <div class="pzn-sec-row-title"> <span>Weight</span> </div>
+                                            <div class="pzn-sec-row-spec"> <span var-update="weight">163g</span> </div>
+                                            <div class="pzn-sec-row-spec"> <span comp-update="weight">250GB</span> </div>
+                                        </div>
+                                        <div class="pzn-sec-row pzn-screensize">
+                                            <div class="pzn-sec-row-title"> <span>Screen size</span> </div>
+                                            <div class="pzn-sec-row-spec"> <img alt="sign" src="https://images.samsung.com/is/image/samsung/p5/uk/pzn/canvas/comparison-grid/Screen-icon-white.png?$ORIGIN_PNG$"><span var-update="screenSize">5.6"</span> </div>
+                                            <div class="pzn-sec-row-spec"> <img alt="sign" src="https://images.samsung.com/is/image/samsung/p5/uk/pzn/canvas/comparison-grid/Screen-icon-white.png?$ORIGIN_PNG$"><span comp-update="screensize">250GB</span> </div>
+                                        </div>
+                                        <div class="pzn-sec-row pzn-infinity">
+                                            <div class="pzn-sec-row-title"> <span>Infinity-O Display</span> </div>
+                                            <div class="pzn-sec-row-spec"> <span><img alt="sign" src="https://images.samsung.com/is/image/samsung/p5/uk/pzn/hubble/comparison_grid/close.png?$ORIGIN_JPG"></span> </div>
+                                            <div class="pzn-sec-row-spec"> <span>250GB</span> </div>
+                                        </div>
+                                        <div class="pzn-comp-grid-offer">
+                                            <p>Pre-order a Galaxy S21 Ultra 5G and claim a free Galaxy Gift</p>
+                                        </div>
+                                        <div class="pzn-comp-grid-cta"> <a pzn-get-data="galaxy-s21:highlights:comparison-grid:display:pre-order" href="https://www.samsung.com/uk/smartphones/galaxy-s21-5g/buy/">Pre-Order</a> </div>
+                                    </div><button pzn-get-data="galaxy-s21:highlights:comparison-grid:dropdown:battery" class="pznaccordion pznctaaccord"><span>Battery</span></button>
+                                    <div class="pznpanel">
+                                        <div class="pzn-sec-row pzn-name">
+                                            <div class="pzn-sec-row-spec"> <span var-update="name">Galaxy S9</span> </div>
+                                            <div class="pzn-sec-row-spec"> <span comp-update="alt">250GB</span> </div>
+                                        </div>
+                                        <div class="pzn-sec-row pzn-battery">
+                                            <div class="pzn-sec-row-title"> <span>Battery Size</span> </div>
+                                            <div class="pzn-sec-row-spec"> <span var-update="batSize">3000mAh<br>(typical)*</span> </div>
+                                            <div class="pzn-sec-row-spec"> <span comp-update="battery">250GB</span> </div>
+                                        </div>
+                                        <div class="pzn-sec-row pzn-fastcharge">
+                                            <div class="pzn-sec-row-title"> <span>Super Fast Charging</span> </div>
+                                            <div class="pzn-sec-row-spec"> <span><img alt="sign" src="https://images.samsung.com/is/image/samsung/p5/uk/pzn/hubble/comparison_grid/close.png?$ORIGIN_JPG"></span> </div>
+                                            <div class="pzn-sec-row-spec"> <span>250GB</span> </div>
+                                        </div>
+                                        <div class="pzn-sec-row pzn-powershare">
+                                            <div class="pzn-sec-row-title"> <span>Wireless Powershare</span> </div>
+                                            <div class="pzn-sec-row-spec"> <span><img alt="sign" src="https://images.samsung.com/is/image/samsung/p5/uk/pzn/hubble/comparison_grid/close.png?$ORIGIN_JPG"></span> </div>
+                                            <div class="pzn-sec-row-spec"> <span>250GB</span> </div>
+                                        </div>
+                                        <div class="pzn-comp-grid-offer">
+                                            <p>Pre-order a Galaxy S21 Ultra 5G and claim a free Galaxy Gift</p>
+                                        </div>
+                                        <div class="pzn-comp-grid-cta"> <a pzn-get-data="galaxy-s21:highlights:comparison-grid:battery:pre-order" href="https://www.samsung.com/uk/smartphones/galaxy-s21-5g/buy/">Pre-Order</a> </div>
+                                    </div><button pzn-get-data="galaxy-s21:highlights:comparison-grid:dropdown:performance" class="pznaccordion pznctaaccord"><span>Performance</span></button>
+                                    <div class="pznpanel">
+                                        <div class="pzn-sec-row pzn-name">
+                                            <div class="pzn-sec-row-spec"> <span var-update="name">Galaxy S9</span> </div>
+                                            <div class="pzn-sec-row-spec"> <span comp-update="alt">250GB</span> </div>
+                                        </div>
+                                        <div class="pzn-sec-row pzn-storage">
+                                            <div class="pzn-sec-row-title"> <span>Internal Storage</span> </div>
+                                            <div class="pzn-sec-row-spec"> <span var-update="storage">64GB / 128GB / 256G</span> </div>
+                                            <div class="pzn-sec-row-spec"> <span comp-update="storage">250GB</span> </div>
+                                        </div>
+                                        <div class="pzn-sec-row pzn-ram">
+                                            <div class="pzn-sec-row-title"> <span>RAM</span> </div>
+                                            <div class="pzn-sec-row-spec"> <span var-update="ram">4GB</span> </div>
+                                            <div class="pzn-sec-row-spec"> <span comp-update="ram">250GB</span> </div>
+                                        </div>
+                                        <div class="pzn-sec-row pzn-sim">
+                                            <div class="pzn-sec-row-title"> <span>Dual / Hybrid SIM</span> </div>
+                                            <div class="pzn-sec-row-spec"> <span var-update="sim">Hybrid</span> </div>
+                                            <div class="pzn-sec-row-spec"> <span comp-update="sim">250GB</span> </div>
+                                        </div>
+                                        <div class="pzn-sec-row pzn-5gready">
+                                            <div class="pzn-sec-row-title"> <span>5G-Ready</span> </div>
+                                            <div class="pzn-sec-row-spec"> <span><img alt="sign" src="https://images.samsung.com/is/image/samsung/p5/uk/pzn/hubble/comparison_grid/close.png?$ORIGIN_JPG"></span> </div>
+                                            <div class="pzn-sec-row-spec"> <span>250GB</span> </div>
+                                        </div>
+                                        <div class="pzn-sec-row pzn-spen">
+                                            <div class="pzn-sec-row-title"> <span>S Pen</span> </div>
+                                            <div class="pzn-sec-row-spec"> <span><img alt="sign" src="https://images.samsung.com/is/image/samsung/p5/uk/pzn/hubble/comparison_grid/close.png?$ORIGIN_JPG"></span> </div>
+                                            <div class="pzn-sec-row-spec"> <span>250GB</span> </div>
+                                        </div>
+                                        <div class="pznmodal-footer">
+                                            <p>Footer</p>
+                                        </div>
+                                        <div class="pzn-comp-grid-offer">
+                                            <p>Pre-order a Galaxy S21 Ultra 5G and claim a free Galaxy Gift</p>
+                                        </div>
+                                        <div class="pzn-comp-grid-cta"> <a pzn-get-data="galaxy-s21:highlights:comparison-grid:performance:pre-order" href="https://www.samsung.com/uk/smartphones/galaxy-s21-5g/buy/">Pre-Order</a> </div>
+                                    </div><button pzn-get-data="galaxy-s21:highlights:comparison-grid:dropdown:security" class="pznaccordion pznctaaccord"><span>Security</span></button>
+                                    <div class="pznpanel">
+                                        <div class="pzn-sec-row pzn-name">
+                                            <div class="pzn-sec-row-spec"> <span var-update="name">Galaxy S9</span> </div>
+                                            <div class="pzn-sec-row-spec"> <span comp-update="alt">250GB</span> </div>
+                                        </div>
+                                        <div class="pzn-sec-row pzn-fingerscan">
+                                            <div class="pzn-sec-row-title"> <span>Fingerprint Scanner Type</span> </div>
+                                            <div class="pzn-sec-row-spec"> <span var-update="fingScan">Rear fingerprint scanner</span> </div>
+                                            <div class="pzn-sec-row-spec"> <span comp-update="fingerscan">250GB</span> </div>
+                                        </div>
+                                        <div class="pzn-sec-row pzn-otherbio">
+                                            <div class="pzn-sec-row-title"> <span>Face Recognition</span> </div>
+                                            <div class="pzn-sec-row-spec"> <span var-update="otherBio">Intelligent scan (Iris & face scan)</span> </div>
+                                            <div class="pzn-sec-row-spec"> <span comp-update="otherbio">250GB</span> </div>
+                                        </div>
+                                        <div class="pzn-sec-row pzn-encrypt">
+                                            <div class="pzn-sec-row-title"> <span>Knox Encryption</span> </div>
+                                            <div class="pzn-sec-row-spec"> <span var-update="encryption">Knox</span> </div>
+                                            <div class="pzn-sec-row-spec"> <span comp-update="encrypt">250GB</span> </div>
+                                        </div>
+                                        <div class="pzn-comp-grid-offer">
+                                            <p>Pre-order a Galaxy S21 Ultra 5G and claim a free Galaxy Gift</p>
+                                        </div>
+                                        <div class="pzn-comp-grid-cta"> <a pzn-get-data="galaxy-s21:highlights:comparison-grid:security:pre-order" href="https://www.samsung.com/uk/smartphones/galaxy-s21-5g/buy/">Pre-Order</a> </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <!-- Replace HTML code above here with your test HTML code -->
+            <div class="cg-content-ctas">
+                <div class="cg-content-ctas-generate">
+                    <button class="sub generate-cta" onclick="return submission();">Generate</button>
+                </div>
+                <div class="cg-content-ctas-copy">
+                    <button class="sub copy-cta" onclick="return copied();">Copy to Clipboard</button>
+                </div>
+            </div>
+            <div class="code-block-container">
+                <textarea rows="99999" cols="99999" class="code-block"></textarea>
+            </div>
+        </div>
+    </div>
+    <script type="text/javascript" src="js/js-main.js"></script>
+</body>
+
+</html>
