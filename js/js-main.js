@@ -1036,12 +1036,13 @@ html.pznShowModal {
   display: inline-block;
       text-align: right;
       padding: 4vw 0 2vw 0;
-      width: 60%;
+      width: 100%;
       -webkit-box-sizing: border-box;
 box-sizing: border-box;
 background-color: #000;
 }
 .pzn-comp-grid-offer {
+  display:none;
     width: 40%;
     display: inline-block;
     padding: 4vw 2vw 2vw 0;
